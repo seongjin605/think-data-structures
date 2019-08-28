@@ -15,10 +15,10 @@ public class SelectionSort {
         }
     }
 
-    public static void swapArr(int[] arr, int start, int minindex) {
+    public static void swapArr(int[] arr, int start, int minIndex) {
         int tmp = arr[start];
-        arr[start] = arr[minindex];
-        arr[minindex] = tmp;
+        arr[start] = arr[minIndex];
+        arr[minIndex] = tmp;
     }
 
     public static void main(String[] args) {
