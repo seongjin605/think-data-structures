@@ -1,3 +1,5 @@
+package leetcode;
+
 public class JewelsAndStones {
     /**
      * <a>https://leetcode.com/problems/jewels-and-stones/submissions/</a>

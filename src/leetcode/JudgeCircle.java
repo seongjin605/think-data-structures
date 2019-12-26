@@ -1,3 +1,5 @@
+package leetcode;
+
 public class JudgeCircle {
     /**
      * <a>https://leetcode.com/problems/robot-return-to-origin/</a>

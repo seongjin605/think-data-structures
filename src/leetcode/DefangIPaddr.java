@@ -1,3 +1,5 @@
+package leetcode;
+
 public class DefangIPaddr {
     /**
      * <a>https://leetcode.com/problems/defanging-an-ip-address/</a>

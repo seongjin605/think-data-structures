@@ -1,3 +1,5 @@
+package leetcode;
+
 public class TwoLowerCase {
     /**
      * <a>https://leetcode.com/problems/to-lower-case/</a>

@@ -1,3 +1,5 @@
+package leetcode;
+
 public class ReverseString {
     /**
      * Input: ['H','a','n','n','a','h']
