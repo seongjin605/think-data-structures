@@ -34,7 +34,7 @@ class LinkedList {
         }
     }
 
-    void retireve() {
+    void retrieve() {
         Node n = header.next;
         while (n.next != null) {
             System.out.print(n.data + " -> ");
@@ -51,8 +51,8 @@ public class LinkedListMain {
         linkedList.append(2);
         linkedList.append(3);
         linkedList.append(4);
-        linkedList.retireve();
+        linkedList.retrieve();
         linkedList.delete(1);
-        linkedList.retireve();
+        linkedList.retrieve();
     }
 }
