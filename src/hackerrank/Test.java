@@ -5,12 +5,14 @@ import java.util.Scanner;
 public class Test {
     private static final Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) {
-        int N = scanner.nextInt();
-        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
-        for (int i = 1; i <= 10; i++) {
-            System.out.println(N + " x " + i + " = " + i * N);
+    public static void main(String[] args) throws Exception {
+        long start = System.currentTimeMillis();
+
+        for(int i = 0; i< 100; i++) {
+            Thread.sleep(1000);
         }
-        scanner.close();
+        long end = System.currentTimeMillis(); //프로그램이 끝나는 시점 계산
+        System.out.println( "실행 시간 : " + ( end - start ) / 1000.0 +"초");
+
     }
 }
