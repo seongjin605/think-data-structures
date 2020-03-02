@@ -1,9 +1,10 @@
 package data.structure;
+
+
 import java.util.EmptyStackException;
 
 public class Stack<T> {
-
-    private static class StackNode<T> {
+    public static class StackNode<T> {
         private T data;
         private StackNode<T> next;
 
@@ -14,21 +15,24 @@ public class Stack<T> {
 
     private StackNode<T> top;
 
+    public void push(T item) {
+        StackNode<T> t = new StackNode<>(item);
+        // top의 이전 다음노드가 top으로 변경
+        t.next = top;
+        // 현재 입력한 노드가 top이된다.
+        top = t;
+    }
+
     public T pop() {
-        if(top == null) throw new EmptyStackException();
+        if (top == null) throw new EmptyStackException();
+        // 다음노드가 탑이된다.
         T item = top.data;
         top = top.next;
         return item;
     }
 
-    public void push(T item) {
-        StackNode t = new StackNode(item);
-        t.next = top;
-        top = t;
-    }
-
     public T peek() {
-        if(top == null) throw new EmptyStackException();
+        if (top == null) throw new EmptyStackException();
         return top.data;
     }
 
@@ -37,10 +41,22 @@ public class Stack<T> {
     }
 
     public static void main(String[] args) {
-        Stack<Integer> stack = new Stack();
+        Stack stack = new Stack();
         stack.push(1);
         stack.push(2);
-        stack.pop();
-        System.out.println(stack.peek());
+        stack.push(3);
+        stack.push(4);
+        stack.push(5);
+        stack.push(6);
+        stack.push(7);
+        System.out.println(stack.pop()); // 7
+        System.out.println(stack.peek()); // 6
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.isEmpty());
     }
 }
