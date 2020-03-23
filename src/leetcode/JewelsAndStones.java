@@ -9,24 +9,19 @@ public class JewelsAndStones {
      * @param S
      * @return
      */
-    public static int numJewelsInStones(String J, String S) {
+    public int numJewelsInStones(String J, String S) {
         int count = 0;
-        char[] JResult = new char[J.length()];
-        char[] SResult = new char[S.length()];
-        for(int i = 0; i < JResult.length; i++) {
-            JResult[i] = J.charAt(i);
-            for(int j = 0; j < SResult.length; j++) {
-                SResult[j] = S.charAt(j);
-                if(JResult[i] == SResult[j]) count ++;
+        for(int i = 0; i < S.length(); i++) {
+            for(int j = 0; j < J.length(); j++) {
+                if(S.charAt(i) == J.charAt(j)) {
+                    count++;
+                }
             }
         }
         return count;
     }
-
     public static void main(String[] args) {
-        String J = "aA";
-        String S = "aAAbbbb";
-        int count = numJewelsInStones(J, S);
-        System.out.println("count="+count);
+        JewelsAndStones jas = new JewelsAndStones();
+        System.out.println(jas.numJewelsInStones("z", "ZZ"));
     }
 }
