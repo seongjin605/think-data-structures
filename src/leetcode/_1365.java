@@ -12,7 +12,7 @@ package leetcode;
  * For nums[3]=2 there exist one smaller number than it (1).
  * For nums[4]=3 there exist three smaller numbers than it (1, 2 and 2).
  */
-public class Num1365 {
+public class _1365 {
     public int[] smallerNumbersThanCurrent(int[] nums) {
         int[] output = new int[nums.length];
         for (int i = 0; i < nums.length; i++) {
@@ -30,7 +30,7 @@ public class Num1365 {
     public static void main(String[] args) {
         int[] nums = {8, 1, 2, 2, 3};
 
-        Num1365 a = new Num1365();
+        _1365 a = new _1365();
         int[] result = a.smallerNumbersThanCurrent(nums);
         for(int data : result) {
             System.out.println(data);

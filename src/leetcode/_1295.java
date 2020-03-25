@@ -11,7 +11,7 @@ package leetcode;
  * 7896 contains 4 digits (even number of digits).
  * Therefore only 12 and 7896 contain an even number of digits.
  */
-public class Num1295 {
+public class _1295 {
 
     public int findNumbers(int[] nums) {
         int count = 0;
@@ -25,7 +25,7 @@ public class Num1295 {
     }
 
     public static void main(String[] args) {
-        Num1295 a = new Num1295();
+        _1295 a = new _1295();
         int[] nums = {12, 345, 2, 6, 7896};
         System.out.println(a.findNumbers(nums));
     }

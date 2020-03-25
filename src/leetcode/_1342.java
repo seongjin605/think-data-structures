@@ -14,7 +14,7 @@ package leetcode;
  * Step 5) 2 is even; divide by 2 and obtain 1.
  * Step 6) 1 is odd; subtract 1 and obtain 0.
  */
-public class Num1342 {
+public class _1342 {
     public int numberOfSteps(int num) {
         int count = 0;
         int obtain = num;
@@ -30,7 +30,7 @@ public class Num1342 {
     }
 
     public static void main(String[] args) {
-        Num1342 a = new Num1342();
+        _1342 a = new _1342();
         int count = a.numberOfSteps(14);
         System.out.println("count:" + count);
     }

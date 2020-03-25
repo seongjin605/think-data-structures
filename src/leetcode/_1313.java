@@ -11,7 +11,7 @@ import java.util.List;
  * The second pair [3,4] means we have freq = 3 and val = 4 so we generate [4,4,4].
  * At the end the concatenation [2] + [4,4,4] is [2,4,4,4].
  */
-public class Num1313 {
+public class _1313 {
     public int[] decompressRLElist(int[] nums) {
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i < nums.length; i++) {
@@ -32,7 +32,7 @@ public class Num1313 {
     }
 
     public static void main(String[] args) {
-        Num1313 a = new Num1313();
+        _1313 a = new _1313();
         int[] input = {1,2,3,4};
         int[] datas = a.decompressRLElist(input);
         for (int data : datas) {

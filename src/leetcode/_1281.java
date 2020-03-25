@@ -10,7 +10,7 @@ import java.util.Stack;
  * Sum of digits = 2 + 3 + 4 = 9
  * Result = 24 - 9 = 15
  */
-public class Num1281 {
+public class _1281 {
     public int subtractProductAndSum(int n) {
         String numToStr = Integer.toString(n);
         Stack stack = new Stack();
@@ -30,7 +30,7 @@ public class Num1281 {
         return multipleResult - sumResult;
     }
     public static void main(String[] args) {
-     Num1281 a = new Num1281();
+     _1281 a = new _1281();
         System.out.println(a.subtractProductAndSum(234));
     }
 }
