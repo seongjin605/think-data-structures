@@ -4,6 +4,7 @@ package leetcode;
 import java.util.*;
 
 /**
+ * <a>https://leetcode.com/problems/group-the-people-given-the-group-size-they-belong-to/</a>
  * INPUT: [3, 3, 3, 3, 3, 1, 3]
  * <p>
  * Output: [[5],[0,1,2],[3,4,6]]
@@ -20,31 +21,44 @@ import java.util.*;
  */
 public class _1282 {
     public static List<List<Integer>> groupThePeople(int[] a) {
-        Map<Integer, List<Integer>> map = new HashMap<>();
-        for (int i = 0; i < a.length; i++) {
-            List<Integer> list = map.getOrDefault(a[i], new ArrayList());
-            list.add(i);
-            map.put(a[i], list);
+        List<Integer> groups = new ArrayList<>();
+        for (int data : a) {
+            groups.add(data);
         }
-        System.out.println(map);
-        List<List<Integer>> result = new ArrayList<>();
-        for (int key : map.keySet()) {
-            // key와 key의 value size가 같으면 그대로 넣고 아니면
-            List<Integer> valuesOfKey = map.get(key);
-            for (int i = 0; i < valuesOfKey.size(); i++) {
-                if (key <= valuesOfKey.get(i)) {
-                    result.add(Collections.singletonList(valuesOfKey.get(i)));
-                } else {
-                    result.add(valuesOfKey);
+        Set<Integer> setOfGroups = new HashSet<>(groups);
+        List<Integer> refinedGroups = new ArrayList<>(setOfGroups);
+        // System.out.println("refinedGroups:" + refinedGroups); [1, 3]
+
+        Map<Integer, List> map = new HashMap();
+        for (int j = 0; j < refinedGroups.size(); j++) {
+            List<Integer> indexList = new ArrayList<>();
+            for (int i = 0; i < groups.size(); i++) {
+                if (refinedGroups.get(j) == groups.get(i)) {
+                    indexList.add(i);
+                    map.put(refinedGroups.get(j), indexList);
                 }
             }
         }
+
+        List<List<Integer>> result = new ArrayList<>();
+        List<Integer> numbers = new ArrayList<>();
+        for (int key : map.keySet()) {
+            List<Integer> grouping = map.get(key);
+            System.out.println(key); // 1, 3
+            System.out.println(grouping); // [5], [0, 1, 2, 3, 4, 6]
+            for (int i = 0; i < key; i++) {
+                numbers.add(grouping.get(i));
+
+            }
+            System.out.println("--------------------------------------");
+            result.add(numbers);
+        }
         System.out.println(result);
+
         return result;
     }
 
     public static void main(String[] args) {
-        // int[] groupSizes = {2, 2, 1, 1, 1, 1, 1, 1};
         int[] groupSizes = {3, 3, 3, 3, 3, 1, 3};
         groupThePeople(groupSizes);
     }
