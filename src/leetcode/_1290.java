@@ -1,12 +1,13 @@
 package leetcode;
 
-import data.structure.Stack;
-
 /**
- * https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/
+ * <a>https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/</a>
  *
- * Input: head = [1,0,0,1,0,0,1,1,1,0,0,0,0,0,0]
- * Output: 18880
+ * <a>https://leetcode.com/submissions/detail/330377177/</a>
+ * <p>
+ *  Input: head = [1,0,0,1,0,0,1,1,1,0,0,0,0,0,0]
+ *  Output: 18880
+ * </p>
  */
 public class _1290 {
     public static class ListNode {
@@ -18,44 +19,24 @@ public class _1290 {
         }
     }
 
-    public static int getDecimalValue(int[] a) {
-        Stack s = new Stack();
-        for (int i = 0; i < a.length; i++) {
-            s.push(a[i]);
+    public static int getDecimalValue(ListNode head) {
+        int ans = 0;
+        while (head != null) {
+            ans = (ans << 1) | head.val;
+            head = head.next;
         }
-        int count = 0;
-        int result = 0;
-        while (!s.isEmpty()) {
-            count++;
-            if((int) s.pop() == 0) {
-                continue;
-            }
-            result += (int) Math.pow(2, count - 1);
-        }
-        System.out.println(result);
-        return result;
+        return ans;
     }
 
-//    public static int getDecimalValue(ListNode head) {
-//        head.val = 1;
-//
-//        Stack s = new Stack();
-//        s.push(head);
-//        int count = 0;
-//        int result = 0;
-//        while (!s.isEmpty()) {
-//            count++;
-//            if((int) s.pop() == 0) {
-//                continue;
-//            }
-//            result += (int) Math.pow(2, count - 1);
-//        }
-//        System.out.println(result);
-//        return count;
-//    }
-
     public static void main(String[] args) {
-        int[] a = new int[]{1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0};
-        getDecimalValue(a);
+        ListNode head = new ListNode(1);
+        ListNode node1 = new ListNode(0);
+        ListNode node2 = new ListNode(1);
+
+        head.next = node1;
+        node1.next = node2;
+
+        getDecimalValue(head);
+
     }
 }
