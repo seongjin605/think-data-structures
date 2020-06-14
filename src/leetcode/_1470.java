@@ -13,10 +13,9 @@ public class _1470 {
             result[i] = nums[i];
         }
 
-        for(int i = 0; i < result.length; i++) {
-            System.out.println(result[i]);
+        for(int data : result) {
+            System.out.println("data = " + data);
         }
-
         return null;
     }
 
