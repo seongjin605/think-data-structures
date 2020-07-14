@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Anagrams {
     static boolean isAnagram(String a, String b) {
-        // Complete the function
         return false;
     }
     public static void main(String[] args) {
