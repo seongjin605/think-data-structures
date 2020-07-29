@@ -4,12 +4,18 @@ public class _1_7 {
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        int[][] arr = {{0, 1, 1, 1}, {2, 2, 2, 2}, {3, 3, 3, 3}, {4, 4, 4, 4}};
+        int[][] arr = {
+                {0, 1, 1, 1},
+                {2, 2, 2, 2},
+                {3, 3, 3, 3},
+                {4, 4, 4, 4}
+        };
         System.out.println(solution.matrix(arr));
     }
 }
 
 class Solution {
+    // 바깥쪽 레이어돌고 안쪽 레이어를 순회하면서 인덱스를 스위칭시키는게 핵심이다..
     boolean matrix(int[][] matrix) {
         if (matrix.length == 0 || matrix.length != matrix[0].length) return false;
         int n = matrix.length;
