@@ -1,9 +1,23 @@
 package hackerrank;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Scanner;
 import java.util.Stack;
 
-
+/**
+ * ({}[])
+ * (({()})))
+ * ({(){}()})()({(){}()})(){()}
+ * {}()))(()()({}}{}
+ * }}}}
+ * ))))
+ * {{{
+ * (((
+ * []{}(){()}((())){{{}}}{()()}{{}{}}
+ * [[]][][]
+ * }{
+ */
 public class JavaStack {
     public static void main(String[] arg) {
         Scanner sc = new Scanner(System.in);
@@ -18,33 +32,30 @@ public class JavaStack {
                 stack.push(c[i]);
             }
 
-            int[] area = new int[6];
-            while (!stack.isEmpty()) {
-                char pop = stack.pop();
-                if ('{' == pop) {
-                    area[0]++;
-                } else if ('}' == pop) {
-                    area[1]++;
-                } else if ('(' == pop) {
-                    area[2]++;
-                } else if (')' == pop) {
-                    area[3]++;
-                } else if ('[' == pop) {
-                    area[4]++;
-                } else if (']' == pop) {
-                    area[5]++;
+            Deque<Character> deque = new ArrayDeque<>(input.length());
+
+            boolean result = true;
+            for (int i = 0; i < input.length(); i++) {
+                if (!stack.isEmpty()) {
+                    Character data = stack.pop();
+                    if (input.charAt(i) == '(' && data == ')') {
+                        deque.add(data);
+                    } else if (input.charAt(i) == '[' && data == ']') {
+                        deque.add(data);
+                    } else if (input.charAt(i) == '{' && data == '}') {
+                        deque.add(data);
+                    } else {
+                        deque.add(data);
+                        if (!deque.isEmpty() && deque.size() == input.length()) {
+                            Character first = deque.pollFirst();
+                            Character second = deque.pollFirst();
+                            result = first == ')' && second == '(' || first == ']' && second == '[' || first == '}' && second == '{' ||
+                                    first == ')' && data == '(' || first == ']' && data == '[' || first == '}' && data == '{';
+                        }
+                    }
                 }
             }
-
-            if(area[0] == 0 && area[1] > 0 || area[0] > 0 && area[1] == 0) {
-                System.out.println(false);
-            } else if(area[2] == 0 && area[3] > 0 || area[2] > 0 && area[3] == 0) {
-                System.out.println(false);
-            } else if(area[4] == 0 && area[5] > 0 || area[4] > 0 && area[5] == 0) {
-                System.out.println(false);
-            } else {
-                System.out.println(true);
-            }
+            System.out.println(result);
         }
     }
 }
