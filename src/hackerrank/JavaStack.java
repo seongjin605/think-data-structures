@@ -34,6 +34,15 @@ public class JavaStack {
 
             Deque<Character> deque = new ArrayDeque<>(input.length());
 
+            int firstLeft = 0;
+            int firstRight = 0;
+
+            int secondLeft = 0;
+            int secondRight = 0;
+
+            int thirdLeft = 0;
+            int thirdRight = 0;
+
             boolean result = true;
             for (int i = 0; i < input.length(); i++) {
                 if (!stack.isEmpty()) {
@@ -46,15 +55,32 @@ public class JavaStack {
                         deque.add(data);
                     } else {
                         deque.add(data);
-                        if (!deque.isEmpty() && deque.size() == input.length()) {
-                            Character first = deque.pollFirst();
-                            Character second = deque.pollFirst();
-                            result = first == ')' && second == '(' || first == ']' && second == '[' || first == '}' && second == '{' ||
-                                    first == ')' && data == '(' || first == ']' && data == '[' || first == '}' && data == '{';
+                        while (!deque.isEmpty() && deque.size() == input.length()) {
+                            if (deque.removeFirstOccurrence('(')) {
+                                firstLeft++;
+                                continue;
+                            } else if (deque.removeFirstOccurrence(')')) {
+                                firstRight++;
+                                continue;
+                            } else if (deque.removeFirstOccurrence('[')) {
+                                secondLeft++;
+                                continue;
+                            } else if (deque.removeFirstOccurrence(']')) {
+                                secondRight++;
+                                continue;
+                            } else if (deque.removeFirstOccurrence('{')) {
+                                thirdLeft++;
+                                continue;
+                            } else if (deque.removeFirstOccurrence('}')) {
+                                thirdRight++;
+                                continue;
+                            }
                         }
                     }
                 }
             }
+
+            result = (firstLeft + firstRight) % 2 == 0 && (secondLeft + secondRight) % 2 == 0 && (thirdLeft + thirdRight) % 2 == 0;
             System.out.println(result);
         }
     }
