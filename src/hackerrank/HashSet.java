@@ -26,7 +26,7 @@ public class HashSet {
 
         Set<String> set = new java.util.HashSet<>();
         for(int i = 0 ; i < pair_left.length; i++) {
-            set.add(pair_left[i] + pair_right[i]);
+            set.add(pair_left[i] + " " + pair_right[i]);
             System.out.println(set.size());
         }
     }
