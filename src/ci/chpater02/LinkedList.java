@@ -18,10 +18,4 @@ public class LinkedList {
             n.next = end;
         }
     }
-
-    public static void main(String[] args) {
-        Node n = new Node(0);
-        n.appendToTail(1);
-        System.out.println(n.next.data);
-    }
 }
